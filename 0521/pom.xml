@@ -33,12 +33,29 @@
 			<version>${org.springframework-version}</version>
 		</dependency>
 		
-		<!-- lombok --> <!-- 수정 -->
+		<!-- spring-test --> <!-- 추가 -->
+		<dependency>
+    		<groupId>org.springframework</groupId>
+    		<artifactId>spring-test</artifactId>
+    		<version>${org.springframework-version}</version>
+		</dependency>
+		
+		<!-- lombok --> <!-- 추가 -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<version>1.18.12</version>
 		</dependency>
+		
+		<!-- hikariCP --> <!-- 추가 -->
+		<dependency>
+			<groupId>com.zaxxer</groupId>
+			<artifactId>HikariCP</artifactId>
+			<version>2.7.4</version>
+		</dependency>
+		
+
+
 				
 		<!-- AspectJ -->
 		<dependency>
