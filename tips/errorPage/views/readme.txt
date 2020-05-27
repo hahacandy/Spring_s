@@ -1,0 +1,1 @@
+경로 src/main/webapp/WEB-INF/views
