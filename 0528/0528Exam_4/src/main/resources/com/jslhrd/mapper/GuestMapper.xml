@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jslhrd.mapper.GuestMapper">
+
+	<select id="guestCount" resultType="int">
+		SELECT COUNT(*) FROM tbl_guest
+	</select>
+	
+	<select id="getGuestList" resultType="com.jslhrd.domain.GuestVO">
+		SELECT * FROM tbl_guest ORDER BY idx desc
+	</select>
+	
+	<insert id="insertGuest">
+		INSERT INTO tbl_guest(idx,name,subject,contents) VALUES(TBL_GUEST_SEQ_IDX.NEXTVAL, #{name}, #{subject}, #{contents})
+	</insert>
+	
+	<insert id="insertGuestKey">
+		
+		<selectKey keyProperty="idx" order="BEFORE" resultType="int">
+			SELECT TBL_GUEST_SEQ_IDX.NEXTVAL FROM dual
+		</selectKey>
+		
+		INSERT INTO tbl_guest(idx,name,subject,contents) VALUES(#{idx}, #{name}, #{subject}, #{contents})
+	</insert>
+	
+	<select id="searchGuest" resultType="com.jslhrd.domain.GuestVO">
+		SELECT * FROM tbl_guest WHERE idx=#{idx}
+	</select>
+	
+	<update id="modifyGuest">
+		UPDATE tbl_guest SET name=#{name}, subject=#{subject}, contents=#{contents} WHERE idx=#{idx}
+	</update>
+	
+	<delete id="deleteGuest">
+		DELETE FROM tbl_guest WHERE idx=#{idx}  
+	</delete>
+	
+</mapper>
