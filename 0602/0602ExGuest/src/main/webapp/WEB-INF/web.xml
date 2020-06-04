@@ -23,9 +23,7 @@
 			<param-value>/WEB-INF/spring/appServlet/servlet-context.xml</param-value>
 		</init-param>
 		<init-param>
-		
-		<!-- 핸들러 못찾을때 리스너 -->
-		<param-name>throwExceptionIfNotHandlerFound</param-name>
+		<param-name>throwExceptionIfNoHandlerFound</param-name>
 		<param-value>true</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
@@ -36,18 +34,45 @@
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 	
-	<!-- 한글인코딩 -->
+	<!-- 한글설정 -->
+
 	<filter>
-		<filter-name>encoding</filter-name>
-		<filter-class>org.springframework.web.filter.CharacterEncoding</filter-class>
-		<init-param>
-			<param-name>encoding</param-name>
-			<param-value>UTF-8</param-value>
-		</init-param>
-	</filter>
-	<filter-mapping>
+
 		<filter-name>encodingFilter</filter-name>
+
+		<filter-class>
+
+			org.springframework.web.filter.CharacterEncodingFilter
+
+		</filter-class>
+
+		<init-param>
+
+			<param-name>encoding</param-name>
+
+			<param-value>UTF-8</param-value>
+
+		</init-param>
+
+		<init-param>
+
+			<param-name>forceEncoding</param-name>
+
+			<param-value>true</param-value>
+
+		</init-param>
+
+	</filter>
+
+	<filter-mapping>
+
+		<filter-name>encodingFilter</filter-name>
+
 		<url-pattern>/*</url-pattern>
+
 	</filter-mapping>
+
+	<!-- 한글설정 END -->
+
 
 </web-app>
