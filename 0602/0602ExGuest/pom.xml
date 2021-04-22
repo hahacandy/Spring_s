@@ -60,7 +60,7 @@
 		<dependency>
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis</artifactId>
-			<version>3.4.6</version>
+			<version>3.5.6</version>
 		</dependency>
 		
 		<!-- 마이바이티스-스프링(mybatis-spring) http://mvnrepository.com/artifact/org.mybatis/mybatis-spring -->
